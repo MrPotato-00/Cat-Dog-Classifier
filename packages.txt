@@ -1,1 +1,4 @@
-unixodbc-dev
+numpy
+pandas
+tensorflow
+streamlit
