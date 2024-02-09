@@ -6,9 +6,6 @@ import numpy as np
 from tensorflow.keras.models import load_model
 
 st.title("Dog or Cat :confused:")
-#st.text_input("Enter Name: ", 'Gabriel')
-#st.image('kolkata.jpg', caption='Kolkata')
-#st.file_uploader()
 
 
 model= load_model('cat_dog_model.h5')
@@ -49,7 +46,6 @@ def predict():
     test_image = image.img_to_array(test_image)
     test_image = np.expand_dims(test_image, axis=0)
     result = model.predict(test_image)
-    #train_set.class_indices
     if result[0][0] ==1:
         st.success("Yeah a dog!! :dog:")
         st.image(image_data)        
