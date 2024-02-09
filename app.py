@@ -2,7 +2,6 @@ import streamlit as st
 import base64
 import tensorflow
 import pandas as pd
-from io import StringIO
 import numpy as np
 from tensorflow.keras.models import load_model
 
@@ -53,7 +52,6 @@ def predict():
     #train_set.class_indices
     if result[0][0] ==1:
         st.success("Yeah a dog!! :dog:")
-        
         st.image(image_data)        
     else:
         st.success("Yeah a cat!! :cat:")
@@ -61,5 +59,9 @@ def predict():
         
     
     
-        
-st.button('Predict', on_click=predict)
+try:
+    if image_data is not None:
+        st.button('Predict', on_click=predict)
+
+except TypeError:
+    st.error("No input")
